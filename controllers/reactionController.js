@@ -1,37 +1,14 @@
 const { Thought, User } = require('../models');
 
 module.exports = {
-  // Get all thoughts
-  async getThoughts(req, res) {
-    try {
-      const thoughts = await Thought.find()
-      res.json(thoughts);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  },
-  // Get a thought
-  async getSingleThought(req, res) {
-    try {
-      const thought = await Thought.findOne({ _id: req.params.thoughtId })
-      if (!thought) {
-        return res.status(404).json({ message: 'No thought with that ID' });
-      }
-
-      res.json(thought);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  },
   // Create a thought
-  async createThought(req, res) {
+  async createReaction(req, res) {
     try {
       const thought = await Thought.create(req.body);
       await User.findOneAndUpdate(
         { _id: req.body.userId },
         { $addToSet: { thoughts: thought._id } },
         { runValidators: true, new: true }
-
       );
      
       res.json(thought);
@@ -58,22 +35,5 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // Update a thought
-  async updateThought(req, res) {
-    try {
-      const course = await Thought.findOneAndUpdate(
-        { _id: req.params.thoughtId },
-        { $set: req.body },
-        { runValidators: true, new: true }
-      );
-
-      if (!course) {
-        res.status(404).json({ message: 'No course with this id!' });
-      }
-
-      res.json(course);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  },
+ 
 };
