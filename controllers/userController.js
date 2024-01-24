@@ -83,6 +83,7 @@ module.exports = {
       res.status(500).json(err);
     }
   },
+  
   // Remove assignment from a student
   async removeFriend(req, res) {
     try {
