@@ -13,6 +13,7 @@ const thoughtSchema = new Schema(
         createdAt: {
             type: Date,
             default: new Date,
+            get: (date)=>date.toLocaleDateString()
         },
         username: {
             type: String,
@@ -23,13 +24,15 @@ const thoughtSchema = new Schema(
     },
     {
         toJSON: {
-            virtuals: true
+            virtuals: true,
+            getters: true
         },
         id: false,
 
 
     }
 );
+
 
 thoughtSchema
     .virtual('reactionCount')
