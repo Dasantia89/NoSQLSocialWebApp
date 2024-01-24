@@ -1,7 +1,7 @@
 # Mod18NoSQLChallenge   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 Social Network API
 ## Description
-The purpose of this project is to build an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. Express.js is used for routing aand mongoose is used for the nosql database.
+The purpose of this project is to build an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. Express.js is used for routing and mongoose is used for the nosql database.
 
   ## Table of Contents<br>
   - [Installation](#installation)
