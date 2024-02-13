@@ -63,6 +63,27 @@ module.exports = {
       res.status(500).json(err);
     }
   },
+  // Update a user
+  async updateUser(req, res) {
+    try {
+      // Update a user's thoughts when deleting a user
+      const user = await User.findById(req.params.userId);
+      
+      const updatedUser = await User.findOneAndUpdate(
+        { _id: req.params.userId },
+        { $set: req.body },
+        { runValidators : true, new: true });
+
+      if (!updatedUser) {
+        return res.status(404).json({ message: 'No such user exists' });
+      }
+
+      res.json({ message: 'User successfully updated' });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  },
 
   // Add an friend to a user
   async addFriend(req, res) {
