@@ -5,13 +5,19 @@ The purpose of this project is to build an API for a social network web applicat
 
   ## Table of Contents<br>
   - [Installation](#installation)
+  - [Usage Information](#usage_information)
 - [License](#license)
-- [Questions](#questions)
+- [Questions](#questions) 
+
 ## Installation
 - Clone the repository
 - Open git bash and type 'npm i'
 - Run the app by typing 'node index.js'
 - Test the routes with insomnia
+
+## Usage Information
+https://watch.screencastify.com/v/drAtGGPiH7K6ZPCta3X5
+
 ## License 
 This project is covered under the MIT license.   https://opensource.org/licenses/MIT
 
